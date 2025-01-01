@@ -2,16 +2,19 @@ import { FocusString } from "@/script/common/FocusString";
 import { docInterface } from "../add/AdderElement"
 import DocElement from "./DocElement";
 import Display from "./Display";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DeleteDoc from "./DeleteDoc";
 
 export default function AllDocsShow({ searchQuery } : {searchQuery: string}) {
 
-    const storage = localStorage?localStorage:null;
-    const docs : docInterface[] = JSON.parse(storage?.getItem("docs") ?? "[]"),
+    const [docs, setDocs] = useState<docInterface[]>([]),
     filteredDocs = docs.filter(doc => 
         doc.name.toLowerCase().includes(searchQuery)
     );
+    useEffect(() => {
+        const docs = JSON.parse(localStorage.getItem("docs") || "[]");
+        setDocs(docs);
+    },[]);
     const [docToShow, setDocToShow] = useState<docInterface | null>(null);
     const [docToDelete, setDocToDelete] = useState<docInterface | null>(null);
     const showDoc = (doc: docInterface) => setDocToShow(doc);
@@ -22,7 +25,6 @@ export default function AllDocsShow({ searchQuery } : {searchQuery: string}) {
         const remainingDocs = docs.filter(d => d.id !== doc.id);
         localStorage.setItem("docs",JSON.stringify(remainingDocs));
         closeDelete();
-        console.log(remainingDocs);
     }
     return <> 
         <div className="row border-bottom text-center font-weight-bold p-2">
