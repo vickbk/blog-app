@@ -4,6 +4,7 @@ import DocElement from "./DocElement";
 import Display from "./Display";
 import { useEffect, useState } from "react";
 import DeleteDoc from "./DeleteDoc";
+import { toast } from "react-toastify";
 
 export default function AllDocsShow({ searchQuery } : {searchQuery: string}) {
 
@@ -24,6 +25,8 @@ export default function AllDocsShow({ searchQuery } : {searchQuery: string}) {
     const deleteDoc = (doc: docInterface) => {
         const remainingDocs = docs.filter(d => d.id !== doc.id);
         localStorage.setItem("docs",JSON.stringify(remainingDocs));
+        setDocs(remainingDocs);
+        toast.success(`Document ${doc.name} deleted successfully!`);
         closeDelete();
     }
     return <> 
