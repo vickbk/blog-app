@@ -3,7 +3,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { title } from 'process';
 import React from 'react';
 
 
@@ -13,7 +12,8 @@ const Navbar = ({pagetitle="Next Apps"}: {pagetitle?: string}) => {
         {path: "/", title: "Home"},
         {path: "/Createblog", title: "Create Blog"},
         {path: "/todo", title: "To do App"},
-        { path: "/docsmanager", title: "Document management" }
+        { path: "/docsmanager", title: "Document management" },
+        { path: "/quiz", title: "Quiz App" }
     ];
     return (
         <>

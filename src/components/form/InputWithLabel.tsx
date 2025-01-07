@@ -2,7 +2,7 @@ import { FocusString } from '@/script/common/FocusString';
 import React, { useState } from 'react';
 
 interface InputWithLabelProps {
-    id: string;
+    id?: string;
     label: string;
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -11,7 +11,7 @@ interface InputWithLabelProps {
     required?: boolean
 }
 
-const InputWithLabel: React.FC<InputWithLabelProps> = ({ id, label, value = '', onChange, type = 'text', name = FocusString.randomString(5), required = false}) => {
+const InputWithLabel: React.FC<InputWithLabelProps> = ({ id = FocusString.randomString(8), label, value = '', onChange, type = 'text', name = FocusString.randomString(5), required = false}) => {
     const [val, setVal] = useState(value);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setVal(e.target.value);
