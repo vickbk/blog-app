@@ -1,0 +1,21 @@
+{
+    "options": [{
+        "title": "Home",
+        "path": "/"
+    }, {
+        "title": "Create Blog",
+        "path": "/Createblog"
+    }, {
+        "title": "To do App",
+        "path": "/todo"
+    }, {
+        "title": "Document Management",
+        "path": "/docsmanager"
+    }, {
+        "title": "Quiz App",
+        "path": "/quiz"
+    }, {
+        "title": "e-Commerce Dashboard",
+        "path": "/e-commerce"
+    }]
+}

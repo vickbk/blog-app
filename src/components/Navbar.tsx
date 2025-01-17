@@ -4,17 +4,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-
+import {options} from '../objects/navbar.json'
 
 const Navbar = ({pagetitle="Next Apps"}: {pagetitle?: string}) => {
     const location = usePathname();
-    const links = [
-        {path: "/", title: "Home"},
-        {path: "/Createblog", title: "Create Blog"},
-        {path: "/todo", title: "To do App"},
-        { path: "/docsmanager", title: "Document management" },
-        { path: "/quiz", title: "Quiz App" }
-    ];
+    const links = options;
     return (
         <>
         <Head>
@@ -48,16 +42,7 @@ const Navbar = ({pagetitle="Next Apps"}: {pagetitle?: string}) => {
                                 )
                             }
                             
-                            {/* <li className="nav-item">
-                                <Link href="/" className="nav-item nav-link text-light">
-                                    Home
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/Createblog" className="nav-item nav-link text-light">
-                                    Create new Blog
-                                </Link>
-                            </li> */}
+                           
                         </ul>
                     </div>
                 </div>

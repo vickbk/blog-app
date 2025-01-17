@@ -45,4 +45,21 @@ export class FocusMath{
         string = FocusString.trim(FocusString.replaceMultiple(string, [new RegExp(`\\${toRemove}`,"g"),""], [/\ /g,""], [",","."]));
         return parseFloat(string).toString();
     }
+    /**
+     * return numbers in a more readable format
+     * eg. 1000 as 1,000 or 1 000 depending on the floating point
+     * @param num: number to beautify
+     * @param floatingPoint : the type of floating point used in the string (. OR ,)
+     * @returns the beautified number in a string format
+     */
+    public static beautifyNumbers(num: number, floatingPoint: "," | "." = "."): string{
+        let numStr = num.toString(),
+        numBlocks: string[] = [];
+        for (let strLen = numStr.length; strLen > 3; strLen = numStr.length) {
+            numBlocks.push(numStr.slice(strLen - 3, strLen));
+            numStr = numStr.slice(0, strLen - 3);
+        }
+        numBlocks.push(numStr);
+        return numBlocks.reverse().join(floatingPoint==="."?",":" ");
+    }
 }

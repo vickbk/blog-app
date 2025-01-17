@@ -1,0 +1,29 @@
+{
+    "options" : [
+        {
+            "name" : "Dashboard",
+            "icon" : "dashboard",
+            "link" : "/"
+        },
+        {
+            "name" : "Products",
+            "icon" : "store",
+            "link" : "/products"
+        },
+        {
+            "name" : "Orders",
+            "icon" : "cart-add",
+            "link" : "/cart"
+        },
+        {
+            "name" : "Customers",
+            "icon" : "user",
+            "link" : "/orders"
+        },
+        {
+            "name" : "Analytics",
+            "icon" : "chart",
+            "link" : "/profile"
+        }
+    ]
+}
